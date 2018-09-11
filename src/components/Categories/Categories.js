@@ -12,7 +12,7 @@ class Categories extends Component {
   render() {
     return (
       <div className="Categories">
-        Person
+        Categories Component
         {/*<Galleri tekst={this.state.textCategory} />*/}
       </div>
     ); 
