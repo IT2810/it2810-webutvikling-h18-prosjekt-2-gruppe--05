@@ -7,10 +7,10 @@ class Header extends Component {
       <div className="Header">
             <div className="Nav">
                 <ul>
-                    <li><a href='#'>Utstilling 1</a></li>
-                    <li><a href='#'>Utstilling 2</a></li>
-                    <li><a href='#'>Utstilling 3</a></li>
-                    <li><a href='#'>Utstilling 4</a></li>
+                    <li><a href='#'>Exhibit 1</a></li>
+                    <li><a href='#'>Exhibit 2</a></li>
+                    <li><a href='#'>Exhibit 3</a></li>
+                    <li><a href='#'>Exhibit 4</a></li>
                 </ul>
             </div>
       </div>
