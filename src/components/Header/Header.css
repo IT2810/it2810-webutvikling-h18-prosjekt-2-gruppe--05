@@ -1,9 +1,8 @@
-
-.Nav {
+.Header .Nav {
 	max-width: 50%;
 }
 
-ul {
+.Header ul {
 	list-style-type: none;
 	overflow: hidden;
 	margin: 0;
@@ -12,13 +11,13 @@ ul {
 	background-color: rgb(97, 97, 97);
 }
 
-li {
+.Header li {
 	float: left;
 	width: 25%;
 	min-width: 93px;
 }
 
-li a {
+.Header li a {
 	display: block;
 	color: black;
 	padding: 10px;
@@ -26,30 +25,30 @@ li a {
 	text-decoration: none;
 }
 
-li a:hover:not(.active) {
+.Header li a:hover:not(.active) {
 	background-color: rgb(156, 156, 156);
 }
 
-li a.active {
+.Header li a.active {
 	color: white;
 	background-color: black;
 }
 
 @media (max-width: 764px) {
-	.Nav {
+	.Header .Nav {
 		max-width: 375px;
 		width: 375px;
 	}
 }
 
 @media (max-width: 392px){
-	.Nav {
+	.Header .Nav {
 		width: 188px;
 	}
 }
 
 @media (max-width: 203px){
-	.Nav {
+	.Header .Nav {
 		width: 92px;
 		min-width: 92px;
 	}

@@ -9,7 +9,6 @@ class Gallery extends Component {
       <div>
       <Picture category="Transport" name='1'/>
       <div className="Gallery">
-      Gallery Component {this.props.text}
       </div>
       </div>
     );
