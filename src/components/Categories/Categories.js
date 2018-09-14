@@ -39,5 +39,3 @@ constructor(props) {
 
   /*Categories Component
   {/*<Galleri tekst={this.state.textCategory} /> } */
-
-/*
