@@ -1,19 +1,4 @@
-/*
-nav {
-	overflow: hidden;
-}
 
-a {
-	color: black;
-    text-decoration: none;
-    padding: 2px 2em;
-    border-style: solid;
-}
-
-a:visited {
-	color: black;
-}
-*/
 .Nav {
 	max-width: 50%;
 }
@@ -52,11 +37,18 @@ li a.active {
 
 @media (max-width: 764px) {
 	.Nav {
-		width: 188px;
+		max-width: 375px;
+		width: 375px;
 	}
 }
 
 @media (max-width: 392px){
+	.Nav {
+		width: 188px;
+	}
+}
+
+@media (max-width: 203px){
 	.Nav {
 		width: 92px;
 		min-width: 92px;
