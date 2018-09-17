@@ -3,11 +3,25 @@ import Picture from './Picture.js';
 
 
 class Gallery extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+        category: ""
+    }
+  }
+
+  update() {
+    return "1";
+  }
+
+
 
   render() {
+    console.log(this.props.picture)
     return (
       <div>
-      <Picture category="Transport" name='1'/>
+      <Picture category={this.props.picture} name='1'/>
       <div className="Gallery">
       </div>
       </div>

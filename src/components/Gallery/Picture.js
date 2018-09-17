@@ -3,34 +3,35 @@ import axios from 'axios';
 
 
 class Picture extends Component {
-    constructor({category, name}) {
-        super()
-
+    constructor() {
+        super();
         this.state = {
             pictures: ""
         }
-
-        this.getImg({category, name});
     }
 
-    getImg = async ({category, name}) => {
+    componentWillReceiveProps() {
+      console.log(this.props)
+      this.getImg();
+    }
+
+    async getImg () {
           try {
-            const picture = await axios.get('/Pictures/'+category+'/' + name + '.svg');
+            const picture = await axios.get('/Pictures/'+this.props.category+'/' + this.props.name + '.svg');
             this.setState({
               pictures: picture.data
-            })
+            });
           }
           catch (error) {
             console.error(error);
           }
         }
 
+
     render() {
-        console.log(this.state)
-        return (  <div className = "CategoryName">
-                <div dangerouslySetInnerHTML={{__html: this.state.pictures}}></div>
-          </div>
-        )
+        return <div className = "CategoryName">
+          <div dangerouslySetInnerHTML={{__html: this.state.pictures}}></div>
+        </div>
     }
 }
 
