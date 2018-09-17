@@ -6,7 +6,7 @@ class RadioButtons extends Component {
     super();
 
     this.state = {
-      option: "option1"
+      option: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -27,6 +27,7 @@ class RadioButtons extends Component {
             <input type="radio" value="option1"
             checked={this.state.option === "option1"}
             onChange={this.handleChange}
+            onClick={() => this.props.triggerParentUpdate(1)}
             />
             {this.props.option1}
           </label>
@@ -36,6 +37,7 @@ class RadioButtons extends Component {
             <input type="radio" value="option2"
             checked={this.state.option === "option2"}
             onChange={this.handleChange}
+            onClick={() => this.props.triggerParentUpdate(2)}
             />
             {this.props.option2}
           </label>
@@ -45,6 +47,7 @@ class RadioButtons extends Component {
             <input type="radio" value="option3"
             checked={this.state.option === "option3"}
             onChange={this.handleChange}
+            onClick={() => this.props.triggerParentUpdate(3)}
             />
             {this.props.option3}
           </label>
