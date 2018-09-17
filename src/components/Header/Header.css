@@ -8,7 +8,7 @@
 	margin: 0;
 	padding: 0;
 	border: 1px solid black;
-	background-color: rgb(97, 97, 97);
+	background-color: #5b627e;
 }
 
 .Header li {
@@ -26,7 +26,7 @@
 }
 
 .Header li a:hover:not(.active) {
-	background-color: rgb(156, 156, 156);
+	background-color: #919db7;
 }
 
 .Header li a.active {

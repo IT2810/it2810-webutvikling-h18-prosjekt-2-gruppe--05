@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Categories from './components/Categories/Categories'
 import Gallery from './components/Gallery/Gallery'
 import Header from './components/Header/Header'
+import './App.css';
 
 class App extends Component {
   render() {
