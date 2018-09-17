@@ -9,7 +9,7 @@ class Categories extends Component {
 
   render() {
     return (
-      <div className="categories">
+      <div className="Categories">
         <RadioButtons media_type="Picture"
         option1="Food"
         option2="Transport"
@@ -37,15 +37,3 @@ class Categories extends Component {
 }
 
 export default Categories;
-
-/*
-constructor(props) {
-    super(props)
-    this.state = {
-      textCategory: props.text,
-    }
-  }
-  */
-
-  /*Categories Component
-  {/*<Galleri tekst={this.state.textCategory} /> } */

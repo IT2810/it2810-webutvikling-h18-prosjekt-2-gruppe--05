@@ -3,6 +3,8 @@ import Categories from './components/Categories/Categories'
 import Gallery from './components/Gallery/Gallery'
 import Header from './components/Header/Header'
 import AudioPlayer from './components/AudioPlayer/AudioPlayer'
+import './App.css';
+
 
 class App extends Component {
   constructor() {

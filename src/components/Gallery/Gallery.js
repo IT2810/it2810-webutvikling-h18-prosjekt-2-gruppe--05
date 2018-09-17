@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Picture from './Picture.js';
+import Text from './Text.js';
+
 
 
 class Gallery extends Component {
@@ -18,7 +20,7 @@ class Gallery extends Component {
       <div>
       <Picture category={this.props.picture} galleryView={this.props.gallery}/>
       <div className="Gallery">
-      </div>
+      <Text category="3" name='2'></Text>
       </div>
     );
   }

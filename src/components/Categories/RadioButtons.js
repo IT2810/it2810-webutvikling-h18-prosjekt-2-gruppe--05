@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Categories.css'
+
 
 class RadioButtons extends Component {
   constructor() {
