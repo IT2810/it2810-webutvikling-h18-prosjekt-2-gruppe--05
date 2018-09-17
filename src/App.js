@@ -6,13 +6,13 @@ import Header from './components/Header/Header'
 class App extends Component {
   constructor() {
     super();
-    this.state={picture:1};
+    this.state=({picture:0, gallery:1});
   }
   render() {
     return (
       <div className="App">
-        <Header />
-        <Gallery picture={this.state.picture}/>
+        <Header triggerParentUpdateGallery={this.setGallery.bind(this)} />
+        <Gallery picture={this.state.picture} gallery={this.state.gallery}/>
         <Categories
           triggerParentUpdatePicture={this.setPicture.bind(this)}
           triggerParentUpdateText={this.setText}
@@ -23,17 +23,24 @@ class App extends Component {
   setPicture(PictureCategory) {
     var PicCat=PictureCategory;
     console.log(PicCat);
-    this.setState({picture:PicCat});
+    this.setState({picture:PicCat, gallery:1});
   }
 
   setText(TextCategory) {
+    var text=TextCategory
     console.log(TextCategory)
   }
-
 
   setAudio(AudioCategory) {
   console.log(AudioCategory)
   }
+
+  setGallery(utstilling) {
+    var gal=utstilling;
+    console.log(gal);
+    this.setState({gallery:gal});
+  }
 }
+
 
 export default App;

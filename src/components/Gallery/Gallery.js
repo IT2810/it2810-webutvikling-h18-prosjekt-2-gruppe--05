@@ -7,21 +7,16 @@ class Gallery extends Component {
     super(props)
 
     this.state = {
-        category: ""
+        category: "",
+        name: ""
     }
   }
-
-  update() {
-    return "1";
-  }
-
-
 
   render() {
     console.log(this.props.picture)
     return (
       <div>
-      <Picture category={this.props.picture} name='1'/>
+      <Picture category={this.props.picture} galleryView={this.props.gallery}/>
       <div className="Gallery">
       </div>
       </div>

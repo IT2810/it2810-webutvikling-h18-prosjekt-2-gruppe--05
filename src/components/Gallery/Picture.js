@@ -6,18 +6,21 @@ class Picture extends Component {
     constructor() {
         super();
         this.state = {
-            pictures: ""
+            pictures: "",
+            name: ""
         }
     }
 
-    componentWillReceiveProps() {
+    componentDidUpdate(prevProps) {
       console.log(this.props)
-      this.getImg();
+      if (prevProps != this.props && !this.props.category==0) {
+        this.getImg();
+      }
     }
 
     async getImg () {
           try {
-            const picture = await axios.get('/Pictures/'+this.props.category+'/' + this.props.name + '.svg');
+            const picture = await axios.get('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg');
             this.setState({
               pictures: picture.data
             });
