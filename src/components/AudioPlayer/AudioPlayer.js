@@ -34,12 +34,12 @@ class AudioPlayer extends Component {
   componentDidMount(props){
 
   }
-  componentDidUpdate(prevProps, prevState){ 
+  componentDidUpdate(prevProps, prevState){
 
   }
 
   getSound(category){
-    
+
   }
   Use this.props.category and this.props.tabnr in source later.
 */
@@ -47,7 +47,7 @@ class AudioPlayer extends Component {
     return (
       <div className="AudioPlayer">
         <audio ref={(Audio) => {this.Audio = Audio}}>
-          <source type="audio/mp3" src={"Sounds/Funny/Baby.mp3"} />
+          <source type="audio/mp3" src={"Sounds/1/1.mp3"} />
         </audio>
         <button onClick={this.state.playing ? this.pauseAudio : this.playAudio}>{this.state.buttonText}</button>
       </div>

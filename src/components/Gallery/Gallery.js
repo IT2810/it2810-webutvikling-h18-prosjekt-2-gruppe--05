@@ -17,9 +17,8 @@ class Gallery extends Component {
   render() {
     console.log(this.props.picture)
     return (
-      <div>
-      <Picture category={this.props.picture} galleryView={this.props.gallery}/>
       <div className="Gallery">
+      <Picture category={this.props.picture} galleryView={this.props.gallery}/>
       <Text category="3" name='2'></Text>
       </div>
     );
