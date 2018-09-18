@@ -9,16 +9,16 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    this.state=({picture:0, gallery:1});
+    this.state=({text:0, picture:0, gallery:1});
   }
   render() {
     return (
       <div className="App">
         <Header triggerParentUpdateGallery={this.setGallery.bind(this)} />
-        <Gallery picture={this.state.picture} gallery={this.state.gallery}/>
+        <Gallery text={this.state.text} picture={this.state.picture} gallery={this.state.gallery}/>
         <Categories
           triggerParentUpdatePicture={this.setPicture.bind(this)}
-          triggerParentUpdateText={this.setText}
+          triggerParentUpdateText={this.setText.bind(this)}
           triggerParentUpdateAudio={this.setAudio} />
         <AudioPlayer />
       </div>
@@ -31,8 +31,8 @@ class App extends Component {
   }
 
   setText(TextCategory) {
-    var text=TextCategory
-    console.log(TextCategory)
+    console.log(TextCategory);
+    this.setState({text:TextCategory, gallery:1});
   }
 
   setAudio(AudioCategory) {
