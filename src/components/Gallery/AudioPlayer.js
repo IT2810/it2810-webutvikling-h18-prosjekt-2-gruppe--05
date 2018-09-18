@@ -16,22 +16,26 @@ class AudioPlayer extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if((prevProps.category !== this.props.category 
-      || prevProps.galleryView !== this.props.galleryView) 
+    if((prevProps.audioCategory !== this.props.audioCategory 
+      || prevProps.galleryView !== this.props.galleryView
+      || prevProps.pictureCategory !== this.props.pictureCategory
+      || prevProps.textCategory !== this.props.textCategory) 
       && prevProps.category !== 0){
         this.pauseAudio();
       }
   }
 
   playAudio(){
-    if(this.props.category === 0){
+    if(this.props.audioCategory === 0){
       alert("Please select a sound category first.")
     } else {
       this.setState({
         playing: true,
         buttonText: "Stop",
-        source: "Sounds/" + this.props.category + "/" + this.props.galleryView + ".mp3"
+        source: "Sounds/" + this.props.audioCategory + "/" + this.props.galleryView + ".mp3"
       })
+      console.log(this.props.audioCategory + " " + this.props.galleryView)
+      console.log("Are u even trying???")
       this.Audio.pause()
       this.Audio.load()
       this.Audio.play()
