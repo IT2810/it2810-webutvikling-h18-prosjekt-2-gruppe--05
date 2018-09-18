@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import Categories from './components/Categories/Categories'
 import Gallery from './components/Gallery/Gallery'
 import Header from './components/Header/Header'
-import AudioPlayer from './components/AudioPlayer/AudioPlayer'
 import './App.css';
 
 
 class App extends Component {
   constructor() {
     super();
+    
+    this.state=({audio: 0, picture:0, gallery:1});
     this.state=({text:0, picture:0, gallery:1});
+    
   }
   render() {
     return (
@@ -19,8 +21,7 @@ class App extends Component {
         <Categories
           triggerParentUpdatePicture={this.setPicture.bind(this)}
           triggerParentUpdateText={this.setText.bind(this)}
-          triggerParentUpdateAudio={this.setAudio} />
-        <AudioPlayer />
+          triggerParentUpdateAudio={this.setAudio.bin(this)} />
       </div>
     );
   }
@@ -36,7 +37,8 @@ class App extends Component {
   }
 
   setAudio(AudioCategory) {
-  console.log(AudioCategory)
+    this.setState({audio: AudioCategory, gallery: 1})
+    console.log(AudioCategory)
   }
 
   setGallery(utstilling) {
