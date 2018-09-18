@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "./AudioPlayer.css";
 
 class AudioPlayer extends Component {
   constructor(props){
@@ -15,13 +14,23 @@ class AudioPlayer extends Component {
 
   }
 
+  componentWillReceiveProps(prevProps, nextProps){
+    if(prevProps.category !== nextProps.category 
+      || prevProps.galleryView !== nextProps.galleryView){
+        this.pauseAudio();
+      }
+  }
+
   playAudio(){
-    console.log("Playing audio, maybe?");
-    this.setState({ playing: true });
-    this.setState({ buttonText: "Pause"});
-    this.Audio.pause()
-    this.Audio.load()
-    this.Audio.play()
+    if(this.props.category === 0){
+      alert("Please select a sound category first.")
+    } else {
+      this.setState({ playing: true });
+      this.setState({ buttonText: "Pause"});
+      this.Audio.pause()
+      this.Audio.load()
+      this.Audio.play()
+    }
   }
 
   pauseAudio(){
@@ -30,24 +39,12 @@ class AudioPlayer extends Component {
     this.setState({ buttonText: "Play"});
     this.Audio.pause()
   }
-  /*
-  componentDidMount(props){
 
-  }
-  componentDidUpdate(prevProps, prevState){
-
-  }
-
-  getSound(category){
-
-  }
-  Use this.props.category and this.props.tabnr in source later.
-*/
   render() {
     return (
       <div className="AudioPlayer">
         <audio ref={(Audio) => {this.Audio = Audio}}>
-          <source type="audio/mp3" src={"Sounds/1/1.mp3"} />
+          <source type="audio/mp3" src={"Sounds/" + this.props.category + "/" + this.props.galleryView + ".mp3"} />
         </audio>
         <button onClick={this.state.playing ? this.pauseAudio : this.playAudio}>{this.state.buttonText}</button>
       </div>
