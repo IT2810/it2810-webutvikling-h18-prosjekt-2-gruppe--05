@@ -19,7 +19,7 @@ class Gallery extends Component {
       <div className="Gallery">
         <Picture category={this.props.picture} galleryView={this.props.gallery}/>
         <Text category={this.props.text} galleryView={this.props.gallery}></Text>
-        <AudioPlayer category={this.props.audio} galleryView={this.props.gallery}/>
+        <AudioPlayer textCategory={this.props.text} pictureCategory={this.props.picture} audioCategory={this.props.audio} galleryView={this.props.gallery}/>
       </div>
     );
   }
