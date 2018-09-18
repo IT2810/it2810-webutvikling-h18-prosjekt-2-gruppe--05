@@ -21,7 +21,7 @@ class App extends Component {
         <Categories
           triggerParentUpdatePicture={this.setPicture.bind(this)}
           triggerParentUpdateText={this.setText.bind(this)}
-          triggerParentUpdateAudio={this.setAudio.bin(this)} />
+          triggerParentUpdateAudio={this.setAudio.bind(this)} />
       </div>
     );
   }
