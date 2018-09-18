@@ -14,12 +14,12 @@ class Gallery extends Component {
   }
 
   render() {
-    console.log(this.props.picture)
+    console.log(this.props.text)
     return (
       <div className="Gallery">
-      <Picture category={this.props.picture} galleryView={this.props.gallery}/>
-      <Text category="3" name='2'></Text>
-      <AudioPlayer category={this.props.audio} galleryView={this.props.gallery}/>
+        <Picture category={this.props.picture} galleryView={this.props.gallery}/>
+        <Text category={this.props.text} galleryView={this.props.gallery}></Text>
+        <AudioPlayer category={this.props.audio} galleryView={this.props.gallery}/>
       </div>
     );
   }

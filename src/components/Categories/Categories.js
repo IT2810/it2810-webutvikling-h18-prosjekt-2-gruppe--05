@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import RadioButtons from './RadioButtons'
 
 class Categories extends Component {
-  constructor(props) {
-    super(props)
-  }
 
 
   render() {
