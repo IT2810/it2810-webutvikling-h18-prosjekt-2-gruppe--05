@@ -6,7 +6,8 @@ class AudioPlayer extends Component {
 
     this.state = {
       playing: false,
-      buttonText: "Play"
+      buttonText: "Play",
+      source: ""
     }
 
     this.playAudio = this.playAudio.bind(this);
@@ -14,9 +15,10 @@ class AudioPlayer extends Component {
 
   }
 
-  componentWillReceiveProps(prevProps, nextProps){
-    if(prevProps.category !== nextProps.category 
-      || prevProps.galleryView !== nextProps.galleryView){
+  componentDidUpdate(prevProps){
+    if((prevProps.category !== this.props.category 
+      || prevProps.galleryView !== this.props.galleryView) 
+      && prevProps.category !== 0){
         this.pauseAudio();
       }
   }
@@ -25,8 +27,11 @@ class AudioPlayer extends Component {
     if(this.props.category === 0){
       alert("Please select a sound category first.")
     } else {
-      this.setState({ playing: true });
-      this.setState({ buttonText: "Pause"});
+      this.setState({
+        playing: true,
+        buttonText: "Stop",
+        source: "Sounds/" + this.props.category + "/" + this.props.galleryView + ".mp3"
+      })
       this.Audio.pause()
       this.Audio.load()
       this.Audio.play()
@@ -34,9 +39,7 @@ class AudioPlayer extends Component {
   }
 
   pauseAudio(){
-    console.log("Pausing audio, maybe?");
-    this.setState({ playing: false});
-    this.setState({ buttonText: "Play"});
+    this.setState({ playing: false, buttonText: "Play"});
     this.Audio.pause()
   }
 
@@ -44,7 +47,7 @@ class AudioPlayer extends Component {
     return (
       <div className="AudioPlayer">
         <audio ref={(Audio) => {this.Audio = Audio}}>
-          <source type="audio/mp3" src={"Sounds/" + this.props.category + "/" + this.props.galleryView + ".mp3"} />
+          <source type="audio/mp3" src={this.state.source} />
         </audio>
         <button onClick={this.state.playing ? this.pauseAudio : this.playAudio}>{this.state.buttonText}</button>
       </div>
