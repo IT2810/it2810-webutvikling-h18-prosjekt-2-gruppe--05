@@ -16,10 +16,10 @@ class AudioPlayer extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if((prevProps.audioCategory !== this.props.audioCategory 
+    if((prevProps.audioCategory !== this.props.audioCategory
       || prevProps.galleryView !== this.props.galleryView
       || prevProps.pictureCategory !== this.props.pictureCategory
-      || prevProps.textCategory !== this.props.textCategory) 
+      || prevProps.textCategory !== this.props.textCategory)
       && prevProps.category !== 0){
         this.pauseAudio();
       }
@@ -42,19 +42,14 @@ class AudioPlayer extends Component {
     this.setState({ playing: false, buttonText: "Play"});
     this.Audio.pause()
   }
-  /*
-  THIS STUFF IS LAST STUFF; PLS DO IT
-  if(this.allSelected){
-    <button onClick={this.state.playing ? this.pauseAudio : this.playAudio}>{this.state.buttonText}</button>
-  }
-  */
+
   render() {
     return (
       <div className="AudioPlayer">
         <audio ref={(Audio) => {this.Audio = Audio}}>
           <source type="audio/mp3" src={this.state.source} />
         </audio>
-        <button onClick={this.state.playing ? this.pauseAudio : this.playAudio}>{this.state.buttonText}</button>
+        {this.props.allSelected && <button onClick={this.state.playing ? this.pauseAudio : this.playAudio}>{this.state.buttonText}</button> }
       </div>
     );
   }
