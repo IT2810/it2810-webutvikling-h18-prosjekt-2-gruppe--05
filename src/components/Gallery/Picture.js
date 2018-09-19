@@ -11,6 +11,10 @@ class Picture extends Component {
         }
     }
 
+    componentDidMount(){
+      this.getImg();
+    }
+
     componentDidUpdate(prevProps) {
       console.log(this.props)
       if (prevProps != this.props && !this.props.category==0) {
@@ -20,10 +24,17 @@ class Picture extends Component {
 
     async getImg () {
           try {
-            const picture = await axios.get('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg');
-            this.setState({
-              pictures: picture.data
-            });
+            if(this.props.allSelected) {
+              const picture = await axios.get('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg');
+              this.setState({
+                pictures: picture.data
+              });
+            } else{
+              const picture = await axios.get('/Pictures/0/placeholder.svg');
+              this.setState({
+                pictures: picture.data
+              });
+            }
           }
           catch (error) {
             console.error(error);
@@ -33,7 +44,7 @@ class Picture extends Component {
 
     render() {
         return <div className = "CategoryName">
-          <div dangerouslySetInnerHTML={{__html: this.state.pictures}}></div>
+          <div className="svgPicture" dangerouslySetInnerHTML={{__html: this.state.pictures}}></div>
         </div>
     }
 }

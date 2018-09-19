@@ -9,17 +9,18 @@ class Gallery extends Component {
 
     this.state = {
         category: "",
-        name: ""
+        name: "",
     }
+
   }
 
   render() {
-    console.log(this.props.text)
+    console.log(this.isAllSelected);
     return (
       <div className="Gallery">
-        <Picture category={this.props.picture} galleryView={this.props.gallery}/>
-        <Text category={this.props.text} galleryView={this.props.gallery}></Text>
-        <AudioPlayer textCategory={this.props.text} pictureCategory={this.props.picture} audioCategory={this.props.audio} galleryView={this.props.gallery}/>
+        <Picture allSelected={this.props.allSelected} category={this.props.picture} galleryView={this.props.gallery}/>
+        <Text allSelected={this.props.allSelected} category={this.props.text} galleryView={this.props.gallery}></Text>
+        <AudioPlayer allSelected={this.props.allSelected} textCategory={this.props.text} pictureCategory={this.props.picture} audioCategory={this.props.audio} galleryView={this.props.gallery}/>
       </div>
     );
   }

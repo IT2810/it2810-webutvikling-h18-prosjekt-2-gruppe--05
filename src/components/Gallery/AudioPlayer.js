@@ -26,16 +26,12 @@ class AudioPlayer extends Component {
   }
 
   playAudio(){
-    if(this.props.audioCategory === 0){
-      alert("Please select a sound category first.")
-    } else {
+    if(this.props.allSelected){
       this.setState({
         playing: true,
         buttonText: "Stop",
         source: "Sounds/" + this.props.audioCategory + "/" + this.props.galleryView + ".mp3"
       })
-      console.log(this.props.audioCategory + " " + this.props.galleryView)
-      console.log("Are u even trying???")
       this.Audio.pause()
       this.Audio.load()
       this.Audio.play()
@@ -46,7 +42,12 @@ class AudioPlayer extends Component {
     this.setState({ playing: false, buttonText: "Play"});
     this.Audio.pause()
   }
-
+  /*
+  THIS STUFF IS LAST STUFF; PLS DO IT
+  if(this.allSelected){
+    <button onClick={this.state.playing ? this.pauseAudio : this.playAudio}>{this.state.buttonText}</button>
+  }
+  */
   render() {
     return (
       <div className="AudioPlayer">

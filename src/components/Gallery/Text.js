@@ -16,8 +16,8 @@ class Text extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
-    if(this.props.category != 0){
+    console.log(this.props.allSelected)
+    if(this.props.allSelected){
       fetch('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json')
         .then(response => {
           if (response.ok) {

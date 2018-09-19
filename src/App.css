@@ -1,26 +1,58 @@
-.App {
+body{
   background-color: #edf2f8;
 }
+
+.App {
+  background-color: #edf2f8;
+  display: grid;
+  grid-template-columns: 180px 520px;
+  grid-template-rows: auto 39px auto;
+  grid-template-areas:
+    'header header'
+    'menu nav'
+    'menu main';
+}
+
+#pageHeader {
+  grid-area: header;
+}
+
+.CategoryName {
+ border: 1px solid black;
+ border-top: 0px;
+ height: 100%;
+ padding: 10px;
+}
+
+.svgPicture {
+  text-align: center;
+}
+
+.text {
+  text-align: center;
+}
+
 .Gallery {
-  max-width: 50%;
+  grid-area: main;
   position: relative;
+}
+
+.Categories {
+  grid-area: menu;
+  width: 100%;
+  float: none;
+  right: 35%;
+  background-color: #edf2f8;
 }
 
 .Categories ul {
     list-style-type: none;
-  }
+    width: 130px;
+  } 
 
 .Categories  p {
     margin-left: 10%;
   }
-
-.Categories {
-  max-width: 50%;
-  float: none;
-  position: absolute;
-  right: 35%;
-  background-color: #edf2f8;
-}
 
 /*.Categories input {
   display: none;
@@ -85,17 +117,21 @@
 }
 
 /* Audio Player */
+.AudioPlayer {
+  text-align: center;
+}
+
 .AudioPlayer button {
   width: 55px;
   padding: 5px 10px;
 }
 
 /* Header */
-.Header .Nav {
-	max-width: 50%;
+.Nav {
+  grid-area: nav;
 }
 
-.Header ul {
+.Nav ul {
 	list-style-type: none;
 	overflow: hidden;
 	margin: 0;
@@ -104,45 +140,39 @@
 	background-color: #5b627e;
 }
 
-.Header li {
+.Nav li {
 	float: left;
 	width: 25%;
-	min-width: 93px;
+  min-width: 93px;
+  cursor: pointer;
 }
 
-.Header li a {
+.Nav li p {
 	display: block;
 	color: black;
 	padding: 10px;
 	text-align: center;
-	text-decoration: none;
-}
-
-.Header li a:hover:not(.active) {
-	background-color: #919db7;
-}
-
-.Header li a.active {
-	color: white;
-	background-color: black;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 /* Media queries */
 @media (max-width: 764px) {
-	.Header .Nav {
+	.Nav {
 		max-width: 375px;
 		width: 375px;
 	}
 }
 
 @media (max-width: 392px){
-	.Header .Nav {
+	.Nav {
 		width: 188px;
 	}
 }
 
 @media (max-width: 203px){
-	.Header .Nav {
+	.Nav {
 		width: 92px;
 		min-width: 92px;
 	}
