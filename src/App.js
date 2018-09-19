@@ -13,14 +13,25 @@ class App extends Component {
       text: 0, 
       audio: 0, 
       picture:0, 
-      gallery:1});
+      gallery:1,
+      allSelected: false});
+
+      this.isAllSelected = this.isAllSelected.bind(this);
 
   }
+
+  isAllSelected(){
+    if(this.state.picture !== 0 && this.state.text !== 0 && this.state.audio !== 0){
+      this.setState({allSelected: true})
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Header triggerParentUpdateGallery={this.setGallery.bind(this)} />
-        <Gallery audio={this.state.audio} text={this.state.text} picture={this.state.picture} gallery={this.state.gallery}/>
+        <h1 id="pageHeader">Our Gallery</h1>
+        <Header gallery={this.state.gallery} triggerParentUpdateGallery={this.setGallery.bind(this)} />
+        <Gallery allSelected={this.state.allSelected} audio={this.state.audio} text={this.state.text} picture={this.state.picture} gallery={this.state.gallery}/>
         <Categories
           triggerParentUpdatePicture={this.setPicture.bind(this)}
           triggerParentUpdateText={this.setText.bind(this)}
@@ -29,25 +40,25 @@ class App extends Component {
     );
   }
   setPicture(PictureCategory) {
-    var PicCat=PictureCategory;
-    console.log(PicCat);
-    this.setState({picture:PicCat, gallery:1});
+    this.setState({picture:PictureCategory, gallery:1}, () => {
+      this.isAllSelected();
+    });
   }
 
   setText(TextCategory) {
-    console.log(TextCategory);
-    this.setState({text:TextCategory, gallery:1});
+    this.setState({text:TextCategory, gallery:1}, () => {
+      this.isAllSelected();
+    });
   }
 
   setAudio(AudioCategory) {
-    this.setState({audio: AudioCategory, gallery: 1})
-    console.log(AudioCategory)
+    this.setState({audio: AudioCategory, gallery: 1}, () => {
+      this.isAllSelected();
+    });
   }
 
-  setGallery(utstilling) {
-    var gal=utstilling;
-    console.log(gal);
-    this.setState({gallery:gal});
+  setGallery(gallery) {
+    this.setState({gallery:gallery});
   }
 }
 

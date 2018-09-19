@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
+  constructor(props){
+    super(props)
+    this.setActiveTab = this.setActiveTab.bind(this);
+  }
+
+  setActiveTab(tabIndex, style){
+    if(this.props.gallery === tabIndex){
+      return(style)
+    }
+  }
+
   render() {
+    const activeStyle = {
+      backgroundColor: 'rgb(181, 185, 201)'
+    }
     return (
-      <div className="Header">
-            <div className="Nav">
-                <ul>
-                    <li onClick={() => this.props.triggerParentUpdateGallery(1)}><p>Utstilling 1</p></li>
-                    <li onClick={() => this.props.triggerParentUpdateGallery(2)}><p>Utstilling 2</p></li>
-                    <li onClick={() => this.props.triggerParentUpdateGallery(3)}><p>Utstilling 3</p></li>
-                    <li onClick={() => this.props.triggerParentUpdateGallery(4)}><p>Utstilling 4</p></li>
-                </ul>
-            </div>
+      <div className="Nav">
+          <ul>
+              <li style={this.setActiveTab(1, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(1)}><p>Utstilling 1</p></li>
+              <li style={this.setActiveTab(2, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(2)}><p>Utstilling 2</p></li>
+              <li style={this.setActiveTab(3, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(3)}><p>Utstilling 3</p></li>
+              <li style={this.setActiveTab(4, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(4)}><p>Utstilling 4</p></li>
+          </ul>
       </div>
     );
   }
