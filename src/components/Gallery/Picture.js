@@ -6,8 +6,7 @@ class Picture extends Component {
     constructor() {
         super();
         this.state = {
-            pictures: "",
-            name: ""
+            pictures: ""
         }
     }
 
@@ -18,8 +17,17 @@ class Picture extends Component {
     componentDidUpdate(prevProps) {
       console.log(this.props)
       if (prevProps != this.props && !this.props.category==0) {
-        this.getImg();
+        if (sessionStorage.getItem('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg') === null) {
+          this.getImg();
+        }
+        else {
+          this.setState(({pictures: sessionStorage.getItem('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg')}))
+        }
       }
+    }
+
+    componentWillUpdate(nextProps) {
+      sessionStorage.setItem('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg', this.state.pictures)
     }
 
     async getImg () {
