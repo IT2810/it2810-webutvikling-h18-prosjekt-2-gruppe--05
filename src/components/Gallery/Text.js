@@ -10,29 +10,35 @@ class Text extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps != this.props && !this.props.category==0) {
-      this.componentDidMount();
+    if (prevProps != this.props && this.props.category != 0) {
+      console.log("JUST BEFORE FETCH")
+      if (sessionStorage.getItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json') === null) {
+        this.fetchData();
+      }
+      else {
+        this.setState(({text: sessionStorage.getItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json')}))
+      }
     }
   }
 
-  componentDidMount() {
-    console.log(this.props)
-    if(this.props.category != 0){
+  componentWillUpdate(nextProps) {
+    sessionStorage.setItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json', this.state.text)
+  }
+
+  fetchData() {
+    console.log(this.props);
+    console.log("I FETCH")
       fetch('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json')
         .then(response => {
           if (response.ok) {
             return response.json()
-          } else {
-            throw new Error('Something went wrong ...');
           }
         })
         .then(data => this.setState({text: data.text}))
         .catch((error) => {
             throw error;
           });
-        }
-      }
-
+    }
 
   render() {
     return (
