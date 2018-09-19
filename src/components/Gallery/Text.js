@@ -12,7 +12,7 @@ class Text extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps != this.props && this.props.category != 0) {
       console.log("JUST BEFORE FETCH")
-      if (sessionStorage.getItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json') === null) {
+      if (!sessionStorage.getItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json')) {
         this.fetchData();
       }
       else {
@@ -22,7 +22,9 @@ class Text extends Component {
   }
 
   componentWillUpdate(nextProps) {
+    if(this.props.allSelected){
     sessionStorage.setItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json', this.state.text)
+  }
   }
 
   fetchData() {

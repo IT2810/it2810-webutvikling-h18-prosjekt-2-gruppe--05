@@ -19,10 +19,10 @@ class Header extends Component {
     return (
       <div className="Nav">
           <ul>
-              <li style={this.setActiveTab(1, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(1)}><p>Utstilling 1</p></li>
-              <li style={this.setActiveTab(2, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(2)}><p>Utstilling 2</p></li>
-              <li style={this.setActiveTab(3, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(3)}><p>Utstilling 3</p></li>
-              <li style={this.setActiveTab(4, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(4)}><p>Utstilling 4</p></li>
+              <li style={this.setActiveTab(1, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(1)}><p>Gallery 1</p></li>
+              <li style={this.setActiveTab(2, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(2)}><p>Gallery 2</p></li>
+              <li style={this.setActiveTab(3, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(3)}><p>Gallery 3</p></li>
+              <li style={this.setActiveTab(4, activeStyle)} onClick={() => this.props.triggerParentUpdateGallery(4)}><p>Gallery 4</p></li>
           </ul>
       </div>
     );

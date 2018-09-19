@@ -27,8 +27,10 @@ class Picture extends Component {
     }
 
     componentWillUpdate(nextProps) {
+      if(this.props.allSelected){
       sessionStorage.setItem('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg', this.state.pictures)
     }
+  }
 
     async getImg () {
           try {
