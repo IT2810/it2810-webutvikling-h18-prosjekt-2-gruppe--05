@@ -20,7 +20,6 @@ body{
 .CategoryName {
  border: 1px solid black;
  border-top: 0px;
- height: 100%;
  padding: 10px;
 }
 
@@ -32,9 +31,11 @@ body{
   text-align: center;
 }
 
+
 .Gallery {
   grid-area: main;
   position: relative;
+  width: 100%;
 }
 
 .Categories {
@@ -48,27 +49,12 @@ body{
 .Categories ul {
     list-style-type: none;
     width: 130px;
-  } 
+  }
 
 .Categories  p {
     margin-left: 10%;
   }
 
-/*.Categories input {
-  display: none;
-  }
-*/
-/*.Categories label {
-  color: black;
-  font-weight: bold;
-  font-size: 1rem;
-  -webkit-user-select: none;
-		   -moz-user-select: none;
-		    -ms-user-select: none;
-		        user-select: none;
-
-}
-*/
 
 .Categories [type="radio"]:checked + label,
 .Categories [type="radio"]:not(:checked) + label
@@ -173,6 +159,26 @@ body{
 
 @media (max-width: 203px){
 	.Nav {
+		width: 92px;
+		min-width: 92px;
+	}
+}
+
+@media (max-width: 764px) {
+	.Gallery {
+		max-width: 375px;
+		width: 375px;
+	}
+}
+
+@media (max-width: 392px){
+	.Gallery {
+		width: 188px;
+	}
+}
+
+@media (max-width: 203px){
+	.Gallery {
 		width: 92px;
 		min-width: 92px;
 	}
