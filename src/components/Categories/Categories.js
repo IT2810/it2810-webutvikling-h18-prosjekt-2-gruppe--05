@@ -19,7 +19,7 @@ class Categories extends Component {
         option3="Funny"
         triggerParentUpdate={this.props.triggerParentUpdateAudio}
         />
-        
+
         <RadioButtons media_type="Text"
         option1="Quotes"
         option2="Tongue Twisters"

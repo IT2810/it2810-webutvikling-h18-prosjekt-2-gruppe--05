@@ -30,6 +30,7 @@ class RadioButtons extends Component {
             onClick={() => this.props.triggerParentUpdate(1)}
             />
             {this.props.option1}
+            <span class="checkmark"></span>
           </label>
         </li>
         <li>
@@ -40,6 +41,7 @@ class RadioButtons extends Component {
             onClick={() => this.props.triggerParentUpdate(2)}
             />
             {this.props.option2}
+            <span class="checkmark"></span>
           </label>
         </li>
         <li>
@@ -50,6 +52,7 @@ class RadioButtons extends Component {
             onClick={() => this.props.triggerParentUpdate(3)}
             />
             {this.props.option3}
+            <span class="checkmark"></span>
           </label>
         </li>
       </ul>
