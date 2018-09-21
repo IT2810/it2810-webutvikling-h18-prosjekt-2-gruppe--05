@@ -249,3 +249,9 @@ body{
     background-color: #edf2f8;
   }
 }
+
+@@media (max-width 203px) {
+  .svgPicture {
+    margin-top: 20%;
+  }
+}
