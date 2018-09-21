@@ -53,5 +53,11 @@ For å teste at siden er responsive, har vi brukt “inspiser” i Google Chrome
 * [W3Schools](https://www.w3schools.com)
 * [Ihatetomatoes](https://www.youtube.com/watch?v=ZZS1irWSfxc&pbjreload=10) - How to use localStorage with React
 
+### Filer er hentet fra:
+* [Svg-bilder](https://www.opto22.com/support/resources-tools/demos/svg-image-library)
+* [Lyder](https://freesound.org/)
+* [Tekster 1](http://www.tongue-twister.net/en.htm)
+* [Tekster 2](https://www.livin3.com/100-bad-dad-jokes-that-will-make-you-laugh-or-cringe)
+
 ### Acknowledgments
 * [Magnus Benoni](https://magnusbenoni.com/radio-buttons-react/) - How to Use Radio Buttons in React
