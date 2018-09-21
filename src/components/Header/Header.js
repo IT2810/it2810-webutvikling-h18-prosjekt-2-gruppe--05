@@ -14,7 +14,7 @@ class Header extends Component {
 
   render() {
     const activeStyle = {
-      backgroundColor: 'rgb(181, 185, 201)'
+      backgroundColor: 'rgb(216,223,187)'
     }
     return (
       <div className="Nav">
