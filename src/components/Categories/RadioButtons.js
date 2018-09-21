@@ -6,7 +6,7 @@ class RadioButtons extends Component {
     super();
 
     this.state = {
-      option: ""
+      option: "option1"
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -58,6 +58,5 @@ class RadioButtons extends Component {
     );
   }
 }
-
 
 export default RadioButtons;

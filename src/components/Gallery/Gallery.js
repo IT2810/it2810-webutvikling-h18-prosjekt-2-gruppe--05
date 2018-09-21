@@ -4,22 +4,19 @@ import Text from './Text.js';
 import AudioPlayer from './AudioPlayer'
 
 class Gallery extends Component {
-  constructor(props) {
-    super(props)
-
+  constructor() {
+    super()
     this.state = {
         category: "",
         name: "",
     }
-
   }
 
   render() {
-    console.log(this.isAllSelected);
     return (
       <div className="Gallery">
-        <Picture allSelected={this.props.allSelected} category={this.props.picture} galleryView={this.props.gallery}/>
-        <Text allSelected={this.props.allSelected} category={this.props.text} galleryView={this.props.gallery}></Text>
+        <Picture category={this.props.picture} galleryView={this.props.gallery}/>
+        <Text category={this.props.text} galleryView={this.props.gallery}/>
         <AudioPlayer allSelected={this.props.allSelected} textCategory={this.props.text} pictureCategory={this.props.picture} audioCategory={this.props.audio} galleryView={this.props.gallery}/>
       </div>
     );

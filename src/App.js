@@ -8,22 +8,13 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    
+
     this.state=({
-      text: 0, 
-      audio: 0, 
-      picture:0, 
+      text: 1,
+      audio: 1,
+      picture:1,
       gallery:1,
-      allSelected: false});
-
-      this.isAllSelected = this.isAllSelected.bind(this);
-
-  }
-
-  isAllSelected(){
-    if(this.state.picture !== 0 && this.state.text !== 0 && this.state.audio !== 0){
-      this.setState({allSelected: true})
-    }
+      allSelected: true});
   }
 
   render() {
@@ -40,27 +31,20 @@ class App extends Component {
     );
   }
   setPicture(PictureCategory) {
-    this.setState({picture:PictureCategory, gallery:1}, () => {
-      this.isAllSelected();
-    });
+    this.setState({picture:PictureCategory, gallery:1});
   }
 
   setText(TextCategory) {
-    this.setState({text:TextCategory, gallery:1}, () => {
-      this.isAllSelected();
-    });
+    this.setState({text:TextCategory, gallery:1});
   }
 
   setAudio(AudioCategory) {
-    this.setState({audio: AudioCategory, gallery: 1}, () => {
-      this.isAllSelected();
-    });
+    this.setState({audio: AudioCategory, gallery: 1});
   }
 
   setGallery(gallery) {
     this.setState({gallery:gallery});
   }
 }
-
 
 export default App;

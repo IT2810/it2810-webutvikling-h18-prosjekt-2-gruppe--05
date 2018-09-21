@@ -1,56 +1,42 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
 class Picture extends Component {
     constructor() {
         super();
         this.state = {
-            pictures: ""
+          pictures: ""
         }
     }
 
     componentDidMount(){
-      this.getImg();
+      this.fetchData();
     }
 
     componentDidUpdate(prevProps) {
-      console.log(this.props)
-      if (prevProps != this.props && !this.props.category==0) {
-        if (sessionStorage.getItem('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg') === null) {
-          this.getImg();
+      if (prevProps !== this.props) {
+          this.fetchData();
         }
-        else {
-          this.setState(({pictures: sessionStorage.getItem('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg')}))
-        }
-      }
     }
 
-    componentWillUpdate(nextProps) {
-      if(this.props.allSelected){
-      sessionStorage.setItem('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg', this.state.pictures)
-    }
-  }
-
-    async getImg () {
-          try {
-            if(this.props.allSelected) {
-              const picture = await axios.get('/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg');
-              this.setState({
-                pictures: picture.data
-              });
-            } else{
-              const picture = await axios.get('/Pictures/0/placeholder.svg');
-              this.setState({
-                pictures: picture.data
-              });
-            }
-          }
-          catch (error) {
-            console.error(error);
-          }
+    fetchData () {
+      let key = '/Pictures/'+this.props.category+'/' + this.props.galleryView + '.svg'
+      if(!sessionStorage.getItem(key)) {
+        axios
+          .get(key)
+          .then(response => {
+            let path = response.data;
+            this.setState({pictures: path});
+          sessionStorage.setItem(key, path);
+        })
+          .catch ((error) => {
+            console.error(error.response);
+          });
+        } else {
+          let path = sessionStorage.getItem(key);
+          this.setState({pictures:path})
         }
-
+    }
 
     render() {
         return <div className = "CategoryName">

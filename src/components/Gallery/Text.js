@@ -1,55 +1,51 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Text extends Component {
-  constructor(props){
-    super(props);
-
-    this.state={
-      text:""
+    constructor(){
+        super();
+        this.state={
+          text:""
+        }
     }
-  }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps != this.props && this.props.category != 0) {
-      console.log("JUST BEFORE FETCH")
-      if (!sessionStorage.getItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json')) {
-        this.fetchData();
-      }
-      else {
-        this.setState(({text: sessionStorage.getItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json')}))
-      }
+    componentDidMount(){
+      this.fetchData();
     }
-  }
 
-  componentWillUpdate(nextProps) {
-    if(this.props.allSelected){
-    sessionStorage.setItem('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json', this.state.text)
-  }
-  }
+    componentDidUpdate(prevProps){
+      if (prevProps !== this.props) {
+          this.fetchData();
+        }
+    }
 
-  fetchData() {
-    console.log(this.props.allSelected)
-    if(this.props.allSelected){
-      fetch('http://localhost:3000/Text/'+this.props.category+'/'+this.props.galleryView+'.json')
+  fetchData(){
+    let key = '/Text/'+this.props.category+'/'+this.props.galleryView+'.json'
+    if (!sessionStorage.getItem(key)){
+      axios
+        .get(key)
         .then(response => {
-          if (response.ok) {
-            return response.json()
-          }
-        })
-        .then(data => this.setState({text: data.text}))
+          let td = response.data;
+          let path = td.text;
+          this.setState({text:path});
+        sessionStorage.setItem(key, path);
+      })
         .catch((error) => {
-            throw error;
-          });
+          console.error(error.response);
+        });
+    } else {
+      let path = sessionStorage.getItem(key);
+      this.setState({text:path})
     }
   }
 
-  render() {
-    return (
-      <div className="text">
-      <p>{this.state.text}</p>
-      </div>
-    );
-  }
+    render() {
+      return (
+        <div className="text">
+        <p>{this.state.text}</p>
+        </div>
+      );
+    }
 }
 
 export default Text;
