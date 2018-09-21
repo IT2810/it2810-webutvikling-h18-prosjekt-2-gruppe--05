@@ -1,28 +1,293 @@
+body{
+  background-color: #ebf3db;
+}
+
 .App {
+  background-color: #ebf3db;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: auto 20% auto;
+  grid-template-areas:
+    'header header'
+    'menu nav'
+    'menu main';
+  }
+
+#pageHeader {
+  grid-area: header;
+  color: #122400;
+}
+
+.CategoryName {
+ border: 1px solid black;
+ border-top: 0px;
+ padding: 10px;
+ height: 80%;
+ background-color: #eff7ea;
+}
+
+.svgPicture {
   text-align: center;
+  height: inherit;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.text {
+  text-align: center;
+  color: #122400;
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+
+.Gallery {
+  grid-area: main;
+  position: relative;
+  width: 70%;
 }
 
-.App-title {
-  font-size: 1.5em;
+
+.Categories ul {
+    list-style-type: none;
+    width: 130px;
+  }
+
+.Categories  p {
+    margin-left: 10%;
+  }
+
+  .Categories {
+    grid-area: menu;
+    width: 100%;
+    float: none;
+    right: 35%;
+    background-color: #ebf3db;
+    cursor: pointer;
+    font-size: 19px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default radio button */
+  .Categories input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+  }
+
+  /* Create a custom radio button */
+  .checkmark {
+      position: absolute;
+      left: 1%;
+      height: 19px;
+      width: 19px;
+      background-color: #d8dfbb;
+      border-radius: 50%;
+      border-style: solid; color: #122400;
+      border-width: 1px;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .Categories input ~ .checkmark:hover {
+      background-color: #eff7ea;
+  }
+
+  /* When the radio button is checked, add a blue background */
+  .Categories input:checked ~ .checkmark {
+      background-color: #77804f;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+  }
+
+  /* Show the indicator (dot/circle) when checked */
+  .Categories input:checked ~ .checkmark:after {
+      display: block;
+  }
+
+  /* Style the indicator (dot/circle) */
+  .Categories .checkmark:after {
+   	top: 5px;
+  	left: 6px;
+  	width: 8px;
+  	height: 8px;
+  	border-radius: 50%;
+  	background: white;
+  }
+
+
+/* Audio Player */
+.AudioPlayer {
+  text-align: center;
+
 }
 
-.App-intro {
-  font-size: large;
+.AudioPlayer button {
+  width: 90px;
+  font-size: 20px;
+  background-color: #77804f;
+  border: solid #122400;
+  border-radius: 5px;
+  color: #eff7ea;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Header */
+.Nav {
+  grid-area: nav;
+  width: 70%;
+}
+
+.Nav ul {
+	list-style-type: none;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+	background-color: #77804f;
+}
+
+.Nav li {
+	float: left;
+	width: 25%;
+  cursor: pointer;
+}
+
+.Nav li p {
+	display: block;
+	color: black;
+	padding: 10px;
+	text-align: center;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #122400;
+}
+
+/* Media queries */
+@media (max-width: 764px) {
+	.Nav {
+    padding-left: 10%;
+		max-width: 70%;
+	}
+}
+
+@media (max-width: 392px){
+	.Nav {
+		width: 50%;
+	}
+}
+
+@media (max-width: 203px){
+	.Nav {
+		width: 50%x;
+		min-width:25%;
+	}
+}
+
+@media(max-width: 764px){
+  .Nav li{
+    width: 50%;
+  }
+}
+
+@media(max-width: 392px){
+  .Nav li{
+    width: 50%;
+  }
+}
+
+@media (max-width: 764px) {
+	.Gallery {
+    padding-left: 10%;
+		width: 70%;
+	}
+}
+
+@media (max-width: 392px){
+	.Gallery {
+		width: 50%;
+	}
+}
+
+@media (max-width: 203px){
+	.Gallery {
+		width: 25%;
+		min-width: 25%;
+	}
+}
+
+@media (max-width: 764px) {
+  .App {
+    display: grid;
+    grid-template-columns: 33% 67%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'header header'
+      'menu nav'
+      'menu main';
+  }
+}
+
+@media (min-width: 203px) and (max-width: 600px){
+  .App {
+    height: 80%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas:
+      'header header'
+      'nav nav'
+      'main main'
+      'menu menu';
+  }
+}
+
+@media (max-width: 203px){
+	.App {
+    width: 100%;
+    grid-template-areas:
+      'header'
+      'nav'
+      'main'
+      'menu';
+  }
+}
+
+@media (max-width: 764px) {
+    .Categories {
+      grid-area: menu;
+      width: 100%;
+      right: 35%;
+      background-color: #ebf3db;
+    }
+}
+
+@media (max-width: 392px){
+  .Categories {
+    grid-area: menu;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    right: 35%;
+    background-color: #ebf3db;
+  }
+  }
+
+@media (max-width: 203px){
+  .Categories {
+    grid-area: menu;
+    width: 100%;
+    display: flex;
+    right: 35%;
+    background-color: #ebf3db;
+  }
+}
+
+@@media (max-width 203px) {
+  .svgPicture {
+    margin-top: 20%;
+  }
 }
