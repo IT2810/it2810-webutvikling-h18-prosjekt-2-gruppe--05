@@ -1,5 +1,5 @@
 # IT2810 Prosjekt 2 - Gallery
-Laget av: Eivind Solberg Rydningen, Anzhelika Silverstova, Kaja L. Solberg
+Laget av: Eivind Solberg Rydningen, Anzhelika Silverstova og Kaja L. Solberg.
 
 ## Innhold og funksjonalitet
 
@@ -10,18 +10,18 @@ Ved valg av en ny kategori i én av medietypene, vil galleriet resettes til gall
 ## Teknologi
 ### React
 
-React er et JavaScript-bibliotek som gjør det enklere å lage responsive og interaktive brukergrensesnitt. React innkapsler komponenter og lar hver komponent ha sin egen “state”. Komponentenes logikk skrives i JavaScript, noe som gjør at data kan flyte gjennom appen uten at “state” påvirker DOM. Komponentene har en render()-funksjon, som tar inn datainput og returnerer hva som skal vises, på best mulig måte. Største fordel med React at den består av såkalte komponenter som lar seg bli gjenbrukt. Man har et hierarki bestående av foreldre og barn der man kan sende ulike verdier fra den ene til den andre og trigge nødvendige endringer. I dette prosjektet skulle vi lage en enkel Single Page React App. Med App.js på toppen av hierarkiet og Gallery, Header og Categories som barn. Utstillings-komponentet består videre av tekst, bilde og audio-komponenter. Kategorier har også 3 radio buttons barn som hver representerer hver media-type.
-JSX er en utvidelse av JS-språket som er brukt i React og gjør det mulig å returnere ønsket verdi på siden uten å måtte legge det inn i selve HTML-fil.
+React er et JavaScript-bibliotek som gjør det enklere å lage responsive og interaktive brukergrensesnitt. React innkapsler komponenter og lar hver komponent ha sin egen “state”. Komponentenes logikk skrives i JavaScript, noe som gjør at data kan flyte gjennom appen uten at “state” påvirker DOM. Komponentene har en render()-funksjon, som tar inn datainput og returnerer hva som skal vises, på best mulig måte. Største fordel med React at den består av såkalte komponenter som lar seg bli gjenbrukt. Man har et hierarki bestående av foreldre og barn der man kan sende ulike verdier fra den ene til den andre og trigge nødvendige endringer. I dette prosjektet skulle vi lage en enkel Single Page React App. Med App.js på toppen av hierarkiet og Gallery, Header og Categories som barn. Utstillings-komponentet består videre av tekst-, bilde- og audio-komponenter. Kategoriene har også 3 radio buttons barn som hver representerer en media-type.
+JSX er en utvidelse av JS-språket som er brukt i React og gjør det mulig å returnere ønsket verdi på siden uten å måtte legge det inn i selve HTML-fil. 
 
 * [React](https://reactjs.org/) - JavaScript library used
 
 ### Ajax
 
-I dette prosjektet måtte vi laste elementer på siden ved hjelp av AJAX. AJAX følger med React og lar deg etterspørre og motta data fra en server, etter at en applikasjon eller nettside er lastet inn. Det lar seg også sende data til en server i bakgrunnen, uten at brukeren merker det. Det som gjør AJAX bra for interaktive brukergrensesnitt, er at de ulike komponentene lastes uavhengig av hverandre, og at man dermed kan oppdatere én komponent i applikasjonen, uten at de resterende komponentene påvirkes.
+I dette prosjektet måtte vi laste elementer på siden ved hjelp av AJAX. AJAX følger med React og lar deg etterspørre og motta data fra en server, etter at en applikasjon eller nettside er lastet inn. Det lar seg også sende data til en server i bakgrunnen, uten at brukeren merker det. Det som gjør AJAX bra for interaktive brukergrensesnitt, er at de ulike komponentene lastes uavhengig av hverandre, og at man dermed kan oppdatere én komponent i applikasjonen, uten at de resterende komponentene påvirkes. 
 
 #### Axios
 
-Vi valgte å bruke Axios som tredjeparts JavaScript-bibliotek for å hente inn nødvendige svg- og json-data. Dette er et kjent og veletablert promise-basert bibliotek som virket relativt lett å ta i bruk og til og med for nybegynnere. Det at biblioteket er promise-basert lar oss skrive asynkron kode for å utføre XMLHTTP requests i tillegg håndterer det asynkrone feil. Asynkron model i motsetning til synkron går ut på at flere ting kan skje samtidig. Du kan bruke Axios for å gjøre dette både i nettleservinduet og i node.js.
+Vi valgte å bruke Axios som tredjeparts JavaScript-bibliotek for å hente inn nødvendige svg- og json-data. Dette er et kjent og veletablert promise-basert bibliotek som virket relativt lett å ta i bruk og til og med for nybegynnere. Det at biblioteket er promise-basert lar oss skrive asynkron kode for å utføre XMLHTTP requests i tillegg håndterer det asynkrone feil. Asynkron model i motsetning til synkron går ut på at flere ting kan skje samtidig. Du kan bruke Axios for å gjøre dette både i nettleservinduet og i node.js. 
 
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 ### HTML5 Audio-tag
@@ -30,7 +30,7 @@ Lasting av lydfil ble gjort med HTML5 Audio-taggen. For å laste inn lyd trenger
 
 ### Storage
 
-Lagring av benyttede filer på klienten kan være nyttig om brukeren vil for eksempel bla gjennom ulike kombinasjoner frem og tilbake. For å slippe å laste på nytt allerede benyttede filer for hver gang kan man benytte seg av caching. Det finnes ulike måter og implementasjoner for å gjøre dette. Vi har valgt å bruke web storage som lagrer data i klientens nettleser. Man kan enten lagre data lokalt som da vil bli husket av nettleseren for alltid til man sletter de manuelt eller per sesjon som betyr at lagret data vil bli slettet når man lukker nettleservindu. I vårt prosjekt brukte vi sessionStorage da det var lettere å følge progresjonen underveis.
+Lagring av benyttede filer på klienten kan være nyttig om brukeren for eksempel vil bla gjennom ulike kombinasjoner frem og tilbake. For å slippe å laste på nytt allerede benyttede filer for hver gang kan man benytte seg av caching. Det finnes ulike måter og implementasjoner for å gjøre dette. Vi har valgt å bruke web storage som lagrer data i klientens nettleser. Man kan enten lagre data lokalt som da vil bli husket av nettleseren for alltid til man sletter de manuelt eller per sesjon som betyr at lagret data vil bli slettet når man lukker nettleservindu. I vårt prosjekt brukte vi sessionStorage da det var lettere å følge progresjonen underveis. 
 
 ### Git
 
