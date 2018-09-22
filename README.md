@@ -1,5 +1,4 @@
 # IT2810 Prosjekt 2 - Gallery
-Laget av: Eivind Solberg Rydningen, Anzhelika Silverstova og Kaja L. Solberg.
 
 ## Innhold og funksjonalitet
 
