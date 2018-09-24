@@ -30,7 +30,7 @@ class AudioPlayer extends Component {
       this.setState({
         playing: true,
         buttonText: "Stop",
-        source: "Sounds/" + this.props.audioCategory + "/" + this.props.galleryView + ".mp3"
+        source: "sounds/" + this.props.audioCategory + "/" + this.props.galleryView + ".mp3"
       })
       this.Audio.pause()
       this.Audio.load()
