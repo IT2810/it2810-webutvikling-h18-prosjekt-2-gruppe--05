@@ -20,7 +20,7 @@ class Picture extends Component {
     }
 
     fetchData () {
-      let key = 'prosjekt2/pictures/'+this.props.category+'/' + this.props.galleryView + '.svg'
+      let key = '/prosjekt2/pictures/'+this.props.category+'/' + this.props.galleryView + '.svg'
       if(!sessionStorage.getItem(key)) {
         axios
           .get(key)
