@@ -20,7 +20,7 @@ class Text extends Component {
     }
 
   fetchData(){
-    let key = '/prosjekt2/text/'+this.props.category+'/'+this.props.galleryView+'.json'
+    let key = 'text/'+this.props.category+'/'+this.props.galleryView+'.json'
     if (!sessionStorage.getItem(key)){
       axios
         .get(key)
